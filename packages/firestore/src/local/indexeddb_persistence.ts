@@ -702,6 +702,13 @@ export class IndexedDbPersistence implements Persistence {
   }
 
   /**
+   * Clear persistence by deleting the database instance.
+   */
+  async clearPersistence(): Promise<void> {
+    await SimpleDb.delete(this.dbName);
+  }
+
+  /**
    * Returns clients that are not zombied and have an updateTime within the
    * provided threshold.
    */
