@@ -335,6 +335,10 @@ export class LocalStore {
     );
   }
 
+  clearPersistence(): Promise<void>{
+    return this.persistence.clearPersistence();
+  }
+
   /**
    * Acknowledge the given batch.
    *

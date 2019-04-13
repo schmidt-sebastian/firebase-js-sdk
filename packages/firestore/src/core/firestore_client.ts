@@ -464,6 +464,10 @@ export class FirestoreClient {
     return this.syncEngine.handleCredentialChange(user);
   }
 
+  clearPersistence(): Promise<void> {
+    return this.syncEngine.clearPersistence();
+  }
+
   /** Disables the network connection. Pending operations will not complete. */
   disableNetwork(): Promise<void> {
     return this.asyncQueue.enqueue(() => {

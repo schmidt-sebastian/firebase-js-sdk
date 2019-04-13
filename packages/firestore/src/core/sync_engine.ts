@@ -1056,6 +1056,10 @@ export class SyncEngine implements RemoteSyncer, SharedClientStateSyncer {
     }
   }
 
+  clearPersistence(): Promise<void> {
+    return this.localStore.clearPersistence();
+  }
+
   // PORTING NOTE: Multi-tab only. In other clients, LocalStore is unaware of
   // the online state.
   enableNetwork(): Promise<void> {

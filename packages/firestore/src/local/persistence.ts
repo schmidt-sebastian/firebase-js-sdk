@@ -157,6 +157,8 @@ export interface Persistence {
    */
   shutdown(deleteData?: boolean): Promise<void>;
 
+  clearPersistence(): Promise<void>;
+
   /**
    * Registers a listener that gets called when the primary state of the
    * instance changes. Upon registering, this listener is invoked immediately

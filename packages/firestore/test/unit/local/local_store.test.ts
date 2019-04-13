@@ -872,6 +872,25 @@ function genericLocalStoreTests(
       });
   });
 
+  it('clears the persistence cache', async () => {
+    const localStore = expectLocalStore().localStore;
+    return localStore
+      .localWrite([
+        setMutation('fo/bar', { fo: 'bar' }),
+        setMutation('foo/bar', { foo: 'bar' }),
+        setMutation('foo/baz', { foo: 'baz' }),
+        setMutation('foo/bar/Foo/Bar', { Foo: 'Bar' }),
+        setMutation('fooo/blah', { fooo: 'blah' })
+      ])
+      .then(async () => {
+        await localStore.clearPersistence();
+        return localStore.executeQuery(Query.atPath(path('foo')));
+      })
+      .then((docs: DocumentMap) => {
+        expect(docs.size).to.equal(0);
+      });
+  });
+
   it('can execute collection queries', () => {
     const localStore = expectLocalStore().localStore;
     return localStore

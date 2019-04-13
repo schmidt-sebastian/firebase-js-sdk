@@ -128,6 +128,10 @@ export class MemoryPersistence implements Persistence {
     return [this.clientId];
   }
 
+  clearPersistence(): Promise<void> {
+    return Promise.resolve();
+  }
+
   setPrimaryStateListener(
     primaryStateListener: PrimaryStateListener
   ): Promise<void> {
