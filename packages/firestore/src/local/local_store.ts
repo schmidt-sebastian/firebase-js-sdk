@@ -335,7 +335,7 @@ export class LocalStore {
     );
   }
 
-  clearPersistence(): Promise<void>{
+  clearPersistence(): Promise<void> {
     return this.persistence.clearPersistence();
   }
 
