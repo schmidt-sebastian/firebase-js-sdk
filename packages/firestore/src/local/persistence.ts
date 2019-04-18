@@ -157,6 +157,9 @@ export interface Persistence {
    */
   shutdown(deleteData?: boolean): Promise<void>;
 
+  /**
+   * Clears persistence only if the database is closed, or will throw an error.
+   */
   clearPersistence(): Promise<void>;
 
   /**

@@ -697,7 +697,7 @@ export class IndexedDbPersistence implements Persistence {
     // we successfully deleted its metadata from IndexedDb.
     this.removeClientZombiedEntry();
     if (deleteData) {
-      await SimpleDb.delete(this.dbName);
+      await this.clearPersistence();
     }
   }
 
@@ -705,9 +705,12 @@ export class IndexedDbPersistence implements Persistence {
    * Clear persistence by deleting the database instance.
    */
   async clearPersistence(): Promise<void> {
-    console.log('clearPersistence() in IDBP');
-    this.simpleDb.close();
-    this.removeClientZombiedEntry();
+    if (this.started) {
+      throw new FirestoreError(
+        Code.FAILED_PRECONDITION,
+        'The database is still open.'
+      );
+    }
     await SimpleDb.delete(this.dbName);
   }
 

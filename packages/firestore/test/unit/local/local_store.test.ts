@@ -295,13 +295,19 @@ function genericLocalStoreTests(
 ): void {
   let persistence: Persistence;
   let localStore: LocalStore;
+  let shutdownCalled;
 
   beforeEach(async () => {
     persistence = await getPersistence();
     localStore = new LocalStore(persistence, User.UNAUTHENTICATED);
+    shutdownCalled = false;
   });
 
-  afterEach(() => persistence.shutdown(/* deleteData= */ true));
+  afterEach(() => {
+    if (shutdownCalled === false) {
+      persistence.shutdown(/* deleteData= */ true);
+    }
+  });
 
   function expectLocalStore(): LocalStoreTester {
     return new LocalStoreTester(localStore, gcIsEager);
@@ -872,7 +878,14 @@ function genericLocalStoreTests(
       });
   });
 
-  it('clears the persistence cache', async () => {
+  it('throws error if user clears persistence with open database', async () => {
+    const localStore = expectLocalStore().localStore;
+    expect(localStore.clearPersistence()).to.be.eventually.rejectedWith(
+      'The database is still open'
+    );
+  });
+
+  it('shutdown() clears the persistence cache', async () => {
     const localStore = expectLocalStore().localStore;
     return localStore
       .localWrite([
@@ -883,8 +896,15 @@ function genericLocalStoreTests(
         setMutation('fooo/blah', { fooo: 'blah' })
       ])
       .then(async () => {
-        await localStore.clearPersistence();
-        return localStore.executeQuery(Query.atPath(path('foo')));
+        // clearPersistence() is called from within shutdown()
+        await persistence.shutdown();
+        shutdownCalled = true;
+        const newPersistence = await getPersistence();
+        const newLocalStore = new LocalStore(
+          newPersistence,
+          User.UNAUTHENTICATED
+        );
+        return newLocalStore.executeQuery(Query.atPath(path('foo')));
       })
       .then((docs: DocumentMap) => {
         expect(docs.size).to.equal(0);
