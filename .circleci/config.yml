@@ -13,19 +13,18 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: |
-          echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
-          echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
+      # - run: |
+      #     echo 'export NVM_DIR="/opt/circleci/.nvm"' >> $BASH_ENV
+      #     echo ' [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> $BASH_ENV
       - run: python -V
-      - run: 
-          name: Upgrade node and Install yarn
-          command: |
-            node -v
-            nvm install v8.11.3
-            nvm alias default v8.11.3
-            node -v
+      # - run: 
+      #     name: Upgrade node and Install yarn
+      #     command: |
+      #       node -v
+      #       nvm install v8.11.3
+      #       nvm alias default v8.11.3
+      #       node -v
       - run: node -v
-      - run: npm install yarn -g
       - run: cp config/ci.config.json config/project.json
       - run: yarn install --frozen-lockfile
       - run: yarn build
