@@ -52,7 +52,10 @@ closureBuilder.build({
       compilation_level: 'ADVANCED',
       define: closureDefines
     }
-  }
+  },
+  trace: true,
+  debug: true,
+  warn: true
 });
 
 // esm build
