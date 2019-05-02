@@ -10,6 +10,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:8-browsers # comes with Java8
+    parallelism: 4
     # machine: true
     steps:
       - checkout
