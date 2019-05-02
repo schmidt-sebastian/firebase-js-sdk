@@ -11,6 +11,7 @@ jobs:
     docker:
       - image: node:8
     steps:
+      - run: ls -al
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: echo "finsihed build"
