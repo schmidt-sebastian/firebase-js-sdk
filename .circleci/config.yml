@@ -12,7 +12,7 @@ jobs:
       - image: node:8
     steps:
       - checkout
-      - run: ls -al ~/repo
+      - run: ls -al
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: echo "finsihed build"
