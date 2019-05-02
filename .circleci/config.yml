@@ -17,7 +17,8 @@ jobs:
       - run: cp config/ci.config.json config/project.json
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: xvfb-run -a yarn test
+      - run: cd packages/messaging
+      - run: yarn test
       - run: echo "finsihed build"
 
 # Orchestrate or schedule a set of jobs, see https://circleci.com/docs/2.0/workflows/
