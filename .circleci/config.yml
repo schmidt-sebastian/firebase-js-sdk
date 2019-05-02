@@ -9,10 +9,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: node:8
+      - image: node:9
     steps:
       - checkout
-      - run: ls -al
+      - run: node -v
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: echo "finsihed build"
