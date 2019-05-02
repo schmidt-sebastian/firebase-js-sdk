@@ -13,9 +13,18 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: node -v
       - run: python -V
-      - run: /opt/circleci/.nvm/nvm.sh install 8 && /opt/circleci/.nvm/nvm.sh use 8
+      - run: 
+      name: Upgrade node and Install yarn
+      command: |
+        node -v
+
+        export NVM_DIR="/opt/circleci/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        nvm install v8.11.3
+        nvm alias default v8.11.3
+        nvm use v8
+        node -v
       - run: node -v
       - run: npm install yarn -g
       - run: cp config/ci.config.json config/project.json
