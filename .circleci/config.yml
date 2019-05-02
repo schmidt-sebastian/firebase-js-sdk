@@ -15,6 +15,9 @@ jobs:
       - checkout
       - run: node -v
       - run: python -V
+      - run: nvm install 8 && nvm use 8
+      - run: node -v
+      - run: npm install yarn -g
       - run: cp config/ci.config.json config/project.json
       - run: yarn install --frozen-lockfile
       - run: yarn build
