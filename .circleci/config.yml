@@ -8,9 +8,9 @@ orbs:
 
 jobs:
   build:
-   # docker:
-   #   - image: circleci/node:8-browsers # comes with Java8
-    machine: true
+    docker:
+      - image: circleci/node:8-browsers # comes with Java8
+    # machine: true
     steps:
       - checkout
       # - run: |
