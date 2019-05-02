@@ -17,7 +17,6 @@ jobs:
       - run: cp config/ci.config.json config/project.json
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - run: cd packages/database && yarn test
       - run: yarn test
       - run: echo "finsihed build"
 
