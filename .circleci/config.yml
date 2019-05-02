@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: node -v
       - run: python -V
-      - run: circleci-install nodejs 8
+      - run: /opt/circleci/.nvm/nvm.sh install 8 && /opt/circleci/.nvm/nvm.sh use 8
       - run: node -v
       - run: npm install yarn -g
       - run: cp config/ci.config.json config/project.json
