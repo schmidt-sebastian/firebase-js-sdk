@@ -9,7 +9,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: node:8
+      - image: circleci/openjdk:8-node
     steps:
       - checkout
       - run: node -v
