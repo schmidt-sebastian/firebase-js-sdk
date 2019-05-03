@@ -5,8 +5,8 @@ steps:
     entrypoint: 'yarn'
     args: ['--version']
   - name: 'circleci/node:8-browsers'
-    entrypoint: 'sudo yarn'
-    args: ['install']
+    entrypoint: 'sudo'
+    args: ['yarn', 'install']
   - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['build']
