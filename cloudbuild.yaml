@@ -1,18 +1,18 @@
 steps:
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     args: ['node', '--version']
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     entrypoint: 'yarn'
     args: ['--version']
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     entrypoint: 'yarn'
     args: ['install']
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     entrypoint: 'yarn'
     args: ['build']
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     entrypoint: 'cp'
     args: ['config/ci.config.json', 'config/project.json']
-  - name: 'digitalgenius/alpine-node-java'
+  - name: 'cwiggert/circleci-node-java'
     entrypoint: 'yarn'
     args: ['test']
