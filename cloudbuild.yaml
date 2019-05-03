@@ -2,11 +2,11 @@ steps:
   - name: 'node:8'
     args: ['node', '--version']
   - name: 'node:8'
-    entrypoint: 'npm'
+    entrypoint: 'yarn'
     args: ['--version']
   - name: 'node:8'
-    entrypoint: 'npm'
+    entrypoint: 'yarn'
     args: ['install']
   - name: 'node:8'
-    entrypoint: 'npm'
+    entrypoint: 'yarn'
     args: ['test']
