@@ -9,4 +9,10 @@ steps:
     args: ['install']
   - name: 'node:8'
     entrypoint: 'yarn'
+    args: ['build']
+  - name: 'node:8'
+    entrypoint: 'cp'
+    args: ['config/ci.config.json', 'config/project.json']
+  - name: 'node:8'
+    entrypoint: 'yarn'
     args: ['test']
