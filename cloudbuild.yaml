@@ -17,8 +17,8 @@ steps:
     entrypoint: 'cp'
     args: ['config/ci.config.json', 'config/project.json']
   - name: 'circleci/node:8-browsers'
-    entrypoint: 'yarn'
-    args: ['test']
+    entrypoint: 'sudo'
+    args: ['yarn', 'test']
 timeout: 1800s
 options:
  machineType: 'N1_HIGHCPU_8'
