@@ -1,18 +1,18 @@
 steps:
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     args: ['node', '--version']
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['--version']
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['install']
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['build']
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'cp'
     args: ['config/ci.config.json', 'config/project.json']
-  - name: 'cwiggert/circleci-node-java'
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['test']
