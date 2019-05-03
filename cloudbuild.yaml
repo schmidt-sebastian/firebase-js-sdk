@@ -1,18 +1,18 @@
 steps:
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     args: ['node', '--version']
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     entrypoint: 'yarn'
     args: ['--version']
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     entrypoint: 'yarn'
     args: ['install']
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     entrypoint: 'yarn'
     args: ['build']
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     entrypoint: 'cp'
     args: ['config/ci.config.json', 'config/project.json']
-  - name: 'node:8'
+  - name: 'digitalgenius/alpine-node-java'
     entrypoint: 'yarn'
     args: ['test']
