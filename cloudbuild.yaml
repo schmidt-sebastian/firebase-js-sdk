@@ -1,12 +1,12 @@
 steps:
-  - name: 'node:${_NODE_VERSION}'
+  - name: 'node:8'
     args: ['node', '--version']
-  - name: 'node:${_NODE_VERSION}'
+  - name: 'node:8'
     entrypoint: 'npm'
     args: ['--version']
-  - name: 'node:${_NODE_VERSION}'
+  - name: 'node:8'
     entrypoint: 'npm'
     args: ['install']
-  - name: 'node:${_NODE_VERSION}'
+  - name: 'node:8'
     entrypoint: 'npm'
     args: ['test']
