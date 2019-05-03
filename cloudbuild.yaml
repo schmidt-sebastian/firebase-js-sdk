@@ -19,3 +19,4 @@ steps:
   - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['test']
+timeout: 1800s
