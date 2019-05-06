@@ -11,6 +11,9 @@ steps:
     entrypoint: 'sudo'
     args: ['chmod','-R','777', '/workspace']
   - name: 'circleci/node:8-browsers'
+    entrypoint: 'zip'
+    args: ['-r', 'nodem.zip', 'node_modules']
+  - name: 'circleci/node:8-browsers'
     entrypoint: 'yarn'
     args: ['build']
   - name: 'circleci/node:8-browsers'
