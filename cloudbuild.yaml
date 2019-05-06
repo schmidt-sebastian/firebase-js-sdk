@@ -2,14 +2,11 @@ steps:
   - name: 'circleci/node:8-browsers'
     args: ['node', '--version']
   - name: 'circleci/node:8-browsers'
-    entrypoint: 'yarn'
-    args: ['--version']
+    entrypoint: 'ls'
+    args: ['-al']
   - name: 'gcr.io/cloud-builders/gsutil'
     id: 'read node_modules from cache'
     args: ['cp','gs://ossbot-f0cad.appspot.com/nodem.zip' , 'nodem.zip' ]
-  - name: 'circleci/node:8-browsers'
-    entrypoint: 'sudo'
-    args: ['unzip', 'nodem.zip']
   - name: 'circleci/node:8-browsers'
     entrypoint: 'sudo'
     args: ['yarn', 'install']
@@ -21,7 +18,7 @@ steps:
     args: ['-r', 'nodem.zip', 'node_modules']
   - name: 'gcr.io/cloud-builders/gsutil'
     id: 'cache node_modules'
-    args: ['cp', 'nodem.zip', 'gs://ossbot-f0cad.appspot.com/nodem.zip']
+    args: ['cp', '-r' 'node_modules', 'gs://ossbot-f0cad.appspot.com/nodem.zip']
   - name: 'circleci/node:8-browsers'
     entrypoint: 'sudo'
     args: ['yarn', 'build']
