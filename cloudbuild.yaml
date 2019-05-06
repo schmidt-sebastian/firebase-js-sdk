@@ -17,8 +17,8 @@ steps:
     id: 'push to gs'
     args: ['cp', 'nodem.zip', 'gs://ossbot-f0cad.appspot.com/nodem.zip']
   - name: 'circleci/node:8-browsers'
-    entrypoint: 'yarn'
-    args: ['build']
+    entrypoint: 'sudo'
+    args: ['yarn', 'build']
   - name: 'circleci/node:8-browsers'
     entrypoint: 'cp'
     args: ['config/ci.config.json', 'config/project.json']
