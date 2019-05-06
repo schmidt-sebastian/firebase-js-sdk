@@ -4,9 +4,6 @@ steps:
   - name: 'circleci/node:8-browsers'
     entrypoint: 'ls'
     args: ['-al']
-  - name: 'gcr.io/cloud-builders/gsutil'
-    id: 'read node_modules from cache'
-    args: ['cp','gs://ossbot-f0cad.appspot.com/nodem.zip' , 'nodem.zip' ]
   - name: 'circleci/node:8-browsers'
     entrypoint: 'sudo'
     args: ['yarn', 'install']
