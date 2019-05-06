@@ -18,7 +18,7 @@ steps:
     args: ['-r', 'nodem.zip', 'node_modules']
   - name: 'gcr.io/cloud-builders/gsutil'
     id: 'cache node_modules'
-    args: ['cp', '-r' 'node_modules', 'gs://ossbot-f0cad.appspot.com/nodem.zip']
+    args: ['cp', '-r', 'node_modules', 'gs://ossbot-f0cad.appspot.com/nodem.zip']
   - name: 'circleci/node:8-browsers'
     entrypoint: 'sudo'
     args: ['yarn', 'build']
