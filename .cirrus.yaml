@@ -1,0 +1,11 @@
+container:
+  image: circleci/node:8-browsers
+
+check_task:
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  config_script: cp config/ci.config.json config/project.json
+  build_script: yarn build
+  test_script: yarn test 
