@@ -10,4 +10,5 @@ check_task:
     populate_script: yarn install
   config_script: cp config/ci.config.json config/project.json
   build_script: yarn build
+  lsof_script: sudo apt-get install lsof
   test_script: sudo yarn test 
