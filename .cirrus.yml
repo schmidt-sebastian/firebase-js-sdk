@@ -11,7 +11,9 @@ check_task:
   config_script: cp config/ci.config.json config/project.json
   build_script: yarn build
   version_script:
+    - which firefox
     - firefox -v
+    - which google-chrome
     - google-chrome --version
   lsof_script: sudo apt-get install lsof
   test_script: sudo yarn test 
