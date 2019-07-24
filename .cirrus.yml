@@ -10,10 +10,10 @@ check_task:
     populate_script: yarn install
   config_script: cp config/ci.config.json config/project.json
   build_script: yarn build
-  version_script:
-    - which firefox
-    - firefox -v
-    - which google-chrome
-    - google-chrome --version
   lsof_script: sudo apt-get install lsof
-  test_script: xvfb-run yarn test 
+  matrix:
+    - name: Node.js and Browser (Chrome) Test
+      test_script: xvfb-run yarn test
+      coveralls_script: yarn test:coverage
+    - name: Cross Browser Test for SDKs
+      test_script: yarn test:saucelabs
