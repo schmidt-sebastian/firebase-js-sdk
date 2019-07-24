@@ -13,6 +13,13 @@ check_task:
   lsof_script: sudo apt-get install lsof
   matrix:
     - name: Node.js and Browser (Chrome) Test
+      env:
+        CI_NAME: Cirrus CI
+        CI_BUILD_NUMBER: $CIRRUS_BUILD_ID
+        CI_PULL_REQUEST: $CIRRUS_PR
+        CI_BUILD_URL: https://cirrus-ci.com/build/$CIRRUS_BUILD_ID
+        CI_BRANCH: $CIRRUS_BRANCH
+        COVERALLS_REPO_TOKEN: ENCRYPTED[7e2a45461cc4cb3c61a0d16c6a794775d6c263704fb6b1d68cfa1feaffca996956a69ea7ae912bf30f74fb371d6faccf]
       test_script: xvfb-run yarn test
       coveralls_script: yarn test:coverage
     - name: Cross Browser Test for SDKs
