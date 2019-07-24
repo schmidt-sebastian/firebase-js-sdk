@@ -3,7 +3,7 @@ container:
   cpu: 8
   memory: 24
 
-check_task:
+task:
   node_modules_cache:
     folder: node_modules
     fingerprint_script: cat yarn.lock
