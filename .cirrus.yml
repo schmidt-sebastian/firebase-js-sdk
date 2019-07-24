@@ -1,7 +1,5 @@
 container:
   image: circleci/node:10-browsers
-  cpu: 8
-  memory: 24
 
 task:
   node_modules_cache:
