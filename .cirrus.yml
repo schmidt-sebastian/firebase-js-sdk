@@ -16,4 +16,4 @@ check_task:
     - which google-chrome
     - google-chrome --version
   lsof_script: sudo apt-get install lsof
-  test_script: sudo yarn test 
+  test_script: xvfb-run yarn test 
