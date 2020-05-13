@@ -134,7 +134,9 @@
     "webpack": "4.43.0",
     "yargs": "15.3.1",
     "@microsoft/api-extractor": "7.7.13",
-    "@microsoft/api-documenter": "7.7.20"
+    "@microsoft/api-documenter": "7.7.20",
+    "@changesets/cli": "2.6.5",
+    "@changesets/changelog-github": "0.2.5"
   },
   "husky": {
     "hooks": {
