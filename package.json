@@ -46,7 +46,9 @@
     "lint": "lerna run --scope @firebase/* --scope rxfire lint",
     "size-report": "node scripts/report_binary_size.js",
     "api-report": "lerna run --scope @firebase/*-exp api-report",
-    "docgen:exp": "node scripts/exp/docgen.js"
+    "docgen:exp": "node scripts/exp/docgen.js",
+    "change": "changeset",
+    "version": "changeset version"
   },
   "repository": {
     "type": "git",
