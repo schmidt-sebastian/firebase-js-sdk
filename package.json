@@ -48,7 +48,7 @@
     "api-report": "lerna run --scope @firebase/*-exp api-report",
     "docgen:exp": "node scripts/exp/docgen.js",
     "change": "changeset",
-    "version": "changeset version"
+    "change:version": "changeset version"
   },
   "repository": {
     "type": "git",
