@@ -1,6 +1,6 @@
 # @firebase/firestore
 
-This is the [Cloud Firestore](https://firebase.google.com/docs/firestore/) component of the
+This is our [Cloud Firestore](https://firebase.google.com/docs/firestore/) component of the
 [Firebase JS SDK](https://www.npmjs.com/package/firebase).
 
 **This package is not intended for direct usage, and should only be used via the officially
