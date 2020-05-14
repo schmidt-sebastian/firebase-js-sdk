@@ -25,8 +25,7 @@ import { registerCoreComponents } from './src/registerCoreComponents';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if (isBrowser() && (self as any).firebase !== undefined) {
   logger.warn(`
-    Warning: Firebase is already defined in the global scope. Please make sure
-    Firebase library is only loaded once.
+    Warning: Firebase is already defined in the global scope.
   `);
 
   // eslint-disable-next-line
